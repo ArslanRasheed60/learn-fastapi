@@ -2,3 +2,5 @@ uvicorn
 fastapi
 ngrok
 sqlalchemy
+"passlib[bcrypt]"
+python-multipart
