@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 from passlib.context import CryptContext
 from starlette import status
+from fastapi.security import OAuth2PasswordRequestForm
 
 router = APIRouter()
 
@@ -25,3 +26,7 @@ async def create_user(user: User):
         'password': bcrypt_context.hash(user.password)
     })
     return DB
+
+@router.post("/token", status_code=status.HTTP_201_CREATED)
+async def login_for_access_token():
+    pass
